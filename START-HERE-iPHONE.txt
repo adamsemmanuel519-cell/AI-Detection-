@@ -1,0 +1,36 @@
+AI FALL GUARD — iPHONE-ONLY NETLIFY PROJECT
+===========================================
+
+WHAT IT DOES
+- Uses your iPhone camera in Safari.
+- MediaPipe Pose Landmarker estimates 33 body landmarks.
+- Draws a live skeleton overlay.
+- Uses simple posture and movement heuristics to flag a POSSIBLE fall.
+- Keeps a small event log in the current page session.
+- Camera frames are processed in the browser; this project contains no video upload or recording feature.
+
+SAFETY
+This is a prototype, not a certified medical device. The alert logic is a simple heuristic and is not clinically validated. It can miss falls and can falsely flag someone lying down, exercising, or bending. Do not use it as the only safety monitor or emergency alert system. Never deliberately fall to test it. Only monitor consenting people.
+
+DEPLOY FROM YOUR IPHONE
+1. Download this ZIP to the iPhone Files app.
+2. Open Safari and go to https://app.netlify.com/ and sign in.
+3. Choose Add new site / Deploy manually (wording may vary).
+4. Upload the ZIP if Netlify's manual deploy accepts ZIP uploads. Otherwise unzip it in Files and upload the contents of the "site" folder using Netlify's manual deploy flow.
+5. After deployment, open the HTTPS Netlify URL in Safari.
+6. Tap START MONITORING and allow camera access.
+7. Put the whole body in frame; mount or position the phone securely so it does not move.
+
+IMPORTANT IPHONE NOTES
+- Camera access requires HTTPS and permission.
+- The model and MediaPipe library download from public CDNs the first time, so internet is needed.
+- Performance depends on your iPhone, browser, lighting and network.
+- Keep the screen awake while monitoring. iOS may suspend browser activity when the phone locks or Safari is backgrounded.
+- The camera feed is local to the page and is not uploaded by this project.
+- Do not rely on this app for unattended or continuous patient monitoring.
+
+PROJECT FILES
+site/index.html — interface
+site/style.css — design
+site/app.js — MediaPipe pose model, camera and experimental heuristic
+netlify.toml — static Netlify publish configuration

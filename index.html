@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071019"><title>AI FALL GUARD</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header><div class="brand"><span class="brand-mark">✣</span> AI <b>FALL GUARD</b></div><div class="live"><i></i> LIVE MONITOR</div></header>
+<main>
+<section class="hero"><div class="eyebrow">REAL-TIME POSE ESTIMATION</div><h1>AI PATIENT <span>MONITOR</span></h1><p>Experimental fall-event detection using live camera pose tracking.</p></section>
+<section class="monitor panel">
+ <div class="panel-head"><div><small>CAM_01 // CAMERA INPUT</small><h2>Monitoring window</h2></div><div id="state" class="state">STANDBY</div></div>
+ <div class="stage" id="stage">
+  <video id="video" playsinline muted></video><canvas id="canvas"></canvas>
+  <div class="scan-grid"></div><div class="corners"><i></i><i></i><i></i><i></i></div>
+  <div id="placeholder" class="placeholder"><div class="cam-icon">⌾</div><b>CAMERA OFFLINE</b><span>Press START MONITORING to begin</span></div>
+  <div class="hud left">POSE TRACKING <span id="fps">-- FPS</span></div><div class="hud right">LOCAL PROCESSING<br>NO VIDEO SAVED</div>
+  <div id="alertBanner" class="alert-banner" hidden>⚠ POSSIBLE FALL DETECTED</div>
+ </div>
+ <div class="controls"><button id="start" class="primary">▶ START MONITORING</button><button id="stop" class="secondary" disabled>■ STOP</button><button id="flip" class="secondary flip">⇄</button></div>
+ <p id="message" class="message">Open this page in Safari over HTTPS and allow camera access.</p>
+</section>
+<section class="stats">
+ <article class="panel"><small>PERSON DETECTED</small><strong id="person">NO</strong><span id="personHint">Waiting for camera</span></article>
+ <article class="panel"><small>POSTURE ESTIMATE</small><strong id="posture">—</strong><span id="postureHint">No pose available</span></article>
+ <article class="panel"><small>FALL ALERTS</small><strong id="falls">0</strong><span>Since this page was opened</span></article>
+</section>
+<section class="lower">
+ <article class="panel details"><small>POSE TELEMETRY</small><h3>Body position</h3><div><span>Shoulder line angle</span><b id="angle">—</b></div><div><span>Body centre height</span><b id="height">—</b></div><div><span>Low posture duration</span><b id="duration">0.0 s</b></div></article>
+ <article class="panel details"><small>EVENT LOG</small><h3>Recent activity</h3><ol id="events"><li>System ready. No events recorded.</li></ol><button id="clear" class="clear">Clear local history</button></article>
+</section>
+<section class="disclaimer"><b>SAFETY NOTICE</b><p>This is an experimental posture-based fall alert prototype, not a medical device. It can miss falls or raise false alarms. It cannot reliably distinguish a fall from someone intentionally lying down. Do not use it as the only means of monitoring a patient or contacting emergency services. Test only with a consenting adult, in a clear safe area, and never deliberately fall to test it.</p></section>
+<footer>AI FALL GUARD <span>PERSONAL EXPERIMENTAL PROJECT</span></footer>
+</main>
+<script type="module" src="/app.js"></script>
+</body></html>
